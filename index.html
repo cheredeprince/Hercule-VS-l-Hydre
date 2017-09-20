@@ -1,0 +1,71 @@
+<html lang="fr">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Hercule VS l'Hydre</title>
+    <link rel="stylesheet" type="text/css" href="style.css">      
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@CheredePrince">
+    <meta name="twitter:site" content="@CheredePrince">
+    <meta name="twitter:title" content="Hercule VS l'Hydre">
+    <meta name="twitter:description" content="Combattre l'Hydre comme Hercule l'a fait n'est finalement qu'une épreuve de patience, seras-tu prendre le temps ?">
+    <meta name="twitter:image:src" content="http://herculevshydre.cheredeprince.net/card.png">
+
+    <meta property="og:url"                content="http://herculevshydre.cheredeprince.net" />
+    <meta property="og:site_name"          content="http://cheredeprince.net" />
+    <meta property="og:type"               content="website" />
+    <meta property="og:title"              content="Hercule VS l'Hydre" />
+    <meta property="og:description"        content="Combattre l'Hydre comme Hercule l'a fait n'est finalement qu'une épreuve de patience, seras-tu prendre le temps ?" />
+    <meta property="og:image"              content="http://herculevshydre.cheredeprince.net/card.png" />
+
+  </head>
+  <body>
+    <input id="navcheck" class="visuallyhidden" type="checkbox" title="menu" role="button" />
+    <label title="menu" aria-hidden="true" for="navcheck">
+      <span class="burger">
+	<span class="bar">
+	  <span class="visuallyhidden">Menu</span>
+	</span>
+      </span>
+    </label>
+    <aside>
+      <div class="content">
+	<h1>Hercule VS l'Hydre</h1>
+	<div class ="cadre-info">
+	  <p class="text-info">Arrivé(e) à Lerne, tu dois affronter l'Hydre aux <input type="number" id="head-number" class="number-input" value="5"/> têtes. Tu vaincras lorsqu'elle sera totalement décapitée.</p>
+	  <input type="button" id="run-button" class="big-button" value="Place au combat !"/>
+	  <p>Attention ! Les têtes se régénèrent.</p>
+	  <div class="text">
+	    <p>Une tête reliée directement au corps de l'Hydre peut être tranchée sans régénération.</p>
+	    
+	    <p>Par contre, une tête coupée reliée à un noeud différent du corps de l'Hydre, se régénéra.</p>
+	    <img class="illustration" src="legende.web.svg" alt="définition de la tête, noeud, précédent noeud, corps de l'Hydre"/>
+	    <p>Au niveau du noeud précédent, des copies du noeud avec ses ramifications sont effectuées. Il y a autant de copie que de tête déjà sectionnées. Dans l'exemple, la première tête coupée est symbolisée pour les pointillés rouges : </p>
+	    <img class="illustration" src="regeneration.web.svg" alt="fonctionnement des regénérations des têtes de l'Hydre"/>
+	    <p>Pour en savoir plus sur ce jeu et sur les stratégies gagnantes, vas voir la <a href="https://www.youtube.com/watch?v=0tBScDTj0n0">vidéo</a> de <a href="https://twitter.com/Eljj">El jj</a>.</p>
+	    <div class="credit">
+	      <p>Cette page a été réalisée par la <a href="http://cheredeprince.net">Bécasse</a>. Je remercie les créateurs de : </p>
+	      <ul>
+		<li><a href="http://sigmajs.org/">Sigma.js</a> pour l'affichage de l'Hydre sous forme de graphe.</li>
+		<li><a href="https://twitter.com/Twikito">Matthieu Bué</a> pour le panneau latéral décrit dans son <a href="http://www.24joursdeweb.fr/2015/pseudo-elements-pseudos-mais-puissants/">article sur les pseudo-éléments</a>.</li>
+		<li><a href="http://www.flaticon.com/">Flaticon</a> pour l'icône de l'<a href="http://www.freepik.com/free-icon/sword_773866.htm#term=swords&page=1&position=2">épée</a>.</li>
+	      </ul>
+	    </div>
+	    <img class="foot-page" src="/head.png" alt="tête d'Hydre"/>
+	  </div>
+	</div>
+      </div>
+    </aside>
+    <span id="win-message" class="win-info"></span>
+    <div class="compteur-box">
+      <span id="head-cpt" title="nombre de têtes restantes" class="cpt-box head-cpt"></span>
+      <span id="cut-cpt"  title="nombre de têtes coupées" class="cpt-box cut-cpt"></span>
+    </div>
+    <div id="container"></div>	
+    <script type="text/javascript" src="sigma.min.js"></script>
+    <script type="text/javascript" src="sigma.layout.forceAtlas2.min.js"></script>
+    <script type="text/javascript" src="sigma.renderers.imageNode.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+  </body>
+</html>

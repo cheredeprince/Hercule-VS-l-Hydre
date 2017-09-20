@@ -1,0 +1,266 @@
+html,body{
+    padding: 0;
+    margin: 0;
+    background-color: #BDA972;
+}
+
+.visuallyhidden{
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+a{
+    color: #116B6F;
+    text-decoration: none;
+    outline: 0 none;
+}
+
+a:hover{
+    text-decoration: underline;}
+
+#container{
+    z-index:1;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+}
+
+/*burger*/
+
+label .burger {
+  position: fixed;
+  top: 1em;
+  left: 1em;
+  z-index: 4;
+  width: 2em;
+  height: 2em;
+  margin: 0;
+  padding: 0;
+  -webkit-transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  cursor: pointer;
+}
+label .burger::before,
+label .burger .bar, label .burger::after {
+  position: absolute;
+  left: 0;
+  display: block;
+  width: 100%;
+  /* width instead of right for transition */
+  height: 12%;
+  background: #116B6F;
+  content: '';
+  -webkit-transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+label .burger .bar {
+  top: 44%;
+}
+label .burger::before {
+  top: 0;
+  -webkit-transform-origin: top left;
+          transform-origin: top left;
+}
+label .burger::after {
+  bottom: 0;
+  -webkit-transform-origin: bottom left;
+          transform-origin: bottom left;
+}
+
+
+input:focus + label .burger,
+label:hover .burger {
+  opacity: .7;
+}
+
+
+aside{
+    line-height: 1.7;
+    position: fixed;
+    z-index: 3;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-image: url(grille.png);
+    
+    width: 100%;
+    border-right: 0.25em solid #79AB1A;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    /* material acceleration */
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: -webkit-transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), -webkit-transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    overflow: auto;
+
+}
+
+@media(min-width: 60em) {
+    aside{
+	width: 60em;
+    }
+}
+
+.content{
+    content: '';
+    z-index: -1;
+    min-height: 100%;
+}
+
+h1{
+    text-align: center;
+    padding: 1.1111em 0;
+    margin: 0;
+    font-size: 2.3em;
+    font-family: "Arial Black", Gadget, "Ubuntu Mono Bold", "Lato Black", sans-serif;
+    font-weight: normal;
+    color: #B81F1B;
+}
+
+.cadre-info{
+    text-align: center;
+    padding: 0 1em;
+}
+
+.number-input{
+    width: 4em;
+    background-color: #F6FFE5;
+}
+
+.big-button{
+    margin-top:0.5em;
+    display: inline-block;
+    background-color: #116B6F;
+    border: 0.1em solid #05575B;
+    border-radius: 0.4em;
+    cursor: pointer;
+    width: auto;
+    font-family: "HelveticaNeue", "Helvetica", "Arial", sans-serif;
+    font-weight: bold;
+    font-size: 1em;
+    color: white;
+    padding: 0.9em;
+}
+
+.big-button:hover{
+    text-decoration: none;
+    background-color: #05575B;
+}
+
+.win-info{
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    bottom: 0;
+    padding-top: 5em;
+    z-index:0;
+    text-align: center;
+    font-weight: bold;
+}
+
+.compteur-box{
+    z-index: 2;
+    position: absolute;
+    top: 1em;
+    right: 0;
+}
+
+.cpt-box{
+    display: inline;
+    position: relative;
+    font-weight: bold;
+    font-size: 1.5em;
+    line-height: 1;
+    padding-right: 1.25em;
+    margin-right: .5em;
+}
+
+
+.head-cpt:after{
+    background: url(head.png) no-repeat;
+}
+
+
+.cut-cpt:after{
+    background: url(sword.png) no-repeat;
+}
+
+.cpt-box:after{
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 1em;
+    height: 1em;
+    background-size: auto 1em;
+    background-position: center center;
+}
+
+[id="navcheck"]:checked + label::before {
+  opacity: 1;
+  pointer-events: auto;
+}
+[id="navcheck"]:checked + label .burger::before, [id="navcheck"]:checked + label .burger::after {
+  width: 141.42%;
+}
+[id="navcheck"]:checked + label .burger::before {
+  -webkit-transform: rotate(45deg) translateY(-50%);
+          transform: rotate(45deg) translateY(-50%);
+}
+[id="navcheck"]:checked + label .burger::after {
+  -webkit-transform: rotate(-45deg) translateY(50%);
+          transform: rotate(-45deg) translateY(50%);
+}
+[id="navcheck"]:checked + label .burger .bar {
+  -webkit-transform: scale(0.1);
+          transform: scale(0.1);
+}
+
+
+[id="navcheck"]:checked ~ aside:before {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+
+[id="navcheck"]:checked ~ aside {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+
+.text{
+    padding-top:.5em;
+    text-align: left;
+}
+
+.text .illustration{
+    display: block;
+    margin: 0 auto;
+    width: 90%;
+}
+
+@media(min-width: 60em) {
+    .text .illustration{
+	width: 60%;
+    }
+}
+
+.credit{
+    font-size:0.875em;
+}
+
+.foot-page{
+    display : block;
+    margin: 0 auto;
+    padding: 1em 0;
+}
